@@ -1,0 +1,111 @@
+<app-header></app-header>
+<app-side-menu></app-side-menu>
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center sous-header">
+            <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">AJOUTER UN UTILISATEUR</h4>
+            </div>
+            <div class="col-lg-6 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex"> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+    <div class="row justify-content-center" style="margin: 0 auto;">
+
+        <div class="col-lg-3 col-xlg-3 col-md-12"></div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-6 col-xlg-3 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="formulaire" (ngSubmit)="submitForm()" class="form-horizontal form-material">
+
+                            <div class="form-group mb-4">
+                                <label class="control-label col-md-4">Photo de l'utilisateur</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="file" value="" name="photo" (change)="imgSelect($event)" />
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label for="example-TYPE" class="col-md-12 p-0">Nom</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" placeholder="Nom de l'utilisateur"
+                                    class="form-control p-0 border-0" type="nom" value="" name="nom" formControlName="nom" >
+                                </div>
+                                <!-- <p *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert">
+                                    <b *ngIf="prenom.errors?.['required']">
+                                          Le prénom est obligatoire !
+                                    </b>
+                                    <b *ngIf="nom.errors?.['pattern']">
+                                        Le prénom doit être composé que des lettres !
+                                    </b>
+                                  </p> -->
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="example-TYPE" class="col-md-12 p-0">Prenom</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" placeholder="Prenom de l'utilisateur"
+                                    class="form-control p-0 border-0" type="prenom" value="" name="prenom" formControlName="prenom" >
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="example-TYPE" class="col-md-12 p-0">Telephone</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" placeholder="Numero de telephone de l'utilisateur"
+                                    class="form-control p-0 border-0" type="tel" value="" name="tel" formControlName="tel" >
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="email" class="col-md-12 p-0">Email</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="email" placeholder="Email de l'utilisateur"
+                                    class="form-control p-0 border-0" type="email" value="" name="email" formControlName="email" >
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="login" class="col-md-12 p-0">Login</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" placeholder="Login de l'utilisateur"
+                                    class="form-control p-0 border-0" type="login" value="" name="login" formControlName="login" >
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="password" class="col-md-12 p-0">Mot de passe</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="password" placeholder="Mot de passe de l'utilisateur"
+                                    class="form-control p-0 border-0" type="password" value="" name="password" formControlName="password" >
+                                </div>
+                            </div>
+                            <!-- <div class="form-group mb-4">
+                                <label for="example-TYPE" class="col-md-12 p-0">Ville</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" placeholder="Saisissez votre ville"
+                                    class="form-control p-0 border-0" type="ville" value="" name="ville" formControlName="ville" >
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="example-TYPE" class="col-md-12 p-0">Quartier</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" placeholder="Saisissez votre quartier"
+                                    class="form-control p-0 border-0" type="quartier" value="" name="quartier" formControlName="quartier" >
+                                </div>
+                            </div> -->
+
+                            <div class="form-group mb-4">
+                                <div class="col-sm-12 align-button">
+                                    <button class="btn btn-sucess" type="submit">Ajouter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xlg-3 col-md-12"></div>
+
+    </div>
+</div>
+</div>

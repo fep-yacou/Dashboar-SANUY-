@@ -1,0 +1,43 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Animated Login Form</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> -->
+<body>
+	<img class="wave" src="./../../assets/img1/wave.png">
+	<div class="container">
+		<div class="img">
+			<img src="./../../assets/img1/bg.svg">
+		</div>
+		<div class="login-content">
+			<form #loginForm="ngForm"  (ngSubmit)="onLogin(loginForm.value)" class="form-horizontal form-material form">
+				<img src="./../../assets/img1/avatar.svg">
+				<h2 class="title">Bienvenue</h2>
+           		<div class="form-group input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<!-- <h5>Username</h5> -->
+           		   		<input type="text" class="form-control p-0 border-0 " name ="login" ngModel>
+           		   </div>
+           		</div>
+           		<div class="form-group input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="form-group div">
+           		    	<!-- <h5>Password</h5> -->
+           		    	<input type="password" class="form-control" name="password" ngModel id="example-email">
+            	   </div>
+            	</div>
+            	<a href="#">Forgot Password?</a>
+            	<input type="submit" class="btn" value="Se connecter">
+            </form>
+        </div>
+    </div>
+</body>
+<!-- </html> -->

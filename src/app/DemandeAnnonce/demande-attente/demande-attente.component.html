@@ -1,0 +1,56 @@
+<app-header></app-header>
+<app-side-menu></app-side-menu>
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center sous-header">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">DEMANDES</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex"> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+              <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <div class="d-md-flex mb-3">
+                                <h3 class="box-title mb-0">Demandes en attentes</h3>
+                                <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
+                                    
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0">Date</th>
+                                            <th class="border-top-0">Catégorie</th>
+                                            <th class="border-top-0">Demandeur</th>
+                                            <th class="border-top-0">Téléphone</th>
+                                            <th class="border-top-0">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let d of demande">
+                                            <!-- {{ d | json }} -->
+                                            <td class="txt-oflo">{{d.dateDemande | date: ('dd-MM-YYYY')}}</td>
+                                            <td class="txt-oflo">{{d?.annonce?.categorie?.type}}</td>
+                                            <td class="txt-oflo">{{d.utilisateur.nom}} {{d.utilisateur.prenom}}</td>
+                                            <td class="txt-oflo">{{d.utilisateur.tel}}</td>
+                                            <td class="txt-oflo">
+                                                <a [routerLink]="['/detail-demande', d.id]"> <i class="fa fa-eye" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
+<!-- <app-footer></app-footer> -->
+</div>
+

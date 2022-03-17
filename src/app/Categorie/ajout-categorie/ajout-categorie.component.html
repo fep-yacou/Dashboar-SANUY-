@@ -1,0 +1,62 @@
+<app-header></app-header>
+<app-side-menu></app-side-menu>
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center sous-header">
+            <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">AJOUTER UNE CATEGORIE</h4>
+            </div>
+            <div class="col-lg-6 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex"> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+    <div class="row justify-content-center" style="margin: 0 auto;">
+
+        <div class="col-lg-3 col-xlg-3 col-md-12"></div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-6 col-xlg-3 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="formulaire" (ngSubmit)="submitForm()" class="form-horizontal form-material">
+
+                            <div class="form-group mb-4">
+                                <label class="control-label col-md-2">Image categorie</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="file" value="" name="photo" (change)="imgSelect($event)" />
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label for="example-TYPE" class="col-md-12 p-0">Type</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" placeholder="Saisissez lr type de dechet"
+                                    class="form-control p-0 border-0" type="text" value="" name="type" formControlName="type" >
+                                </div>
+                                <!-- <p *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert">
+                                    <b *ngIf="prenom.errors?.['required']">
+                                          Le prénom est obligatoire !
+                                    </b>
+                                    <b *ngIf="nom.errors?.['pattern']">
+                                        Le prénom doit être composé que des lettres !
+                                    </b>
+                                  </p> -->
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <div class="col-sm-12 align-button">
+                                    <button class="btn btn-warning" type="submit">Ajouter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xlg-3 col-md-12"></div>
+
+    </div>
+</div>
+</div>

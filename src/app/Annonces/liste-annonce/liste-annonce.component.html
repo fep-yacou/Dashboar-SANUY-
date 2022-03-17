@@ -1,0 +1,44 @@
+<app-header></app-header>
+<app-side-menu></app-side-menu>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 flex">
+                <h4 class="page-title">LISTE DES ANNONCES</h4>
+                <!-- <button>AJOUTER UNE ANNONCE</button> -->
+                <ol class="breadcrumb ms-auto">
+                    <li> <a href="ajout-annonce" class="btn btn-sucess ">
+                        <i class="fas fa-plus" aria-hidden="true"></i>  
+                        <b> Ajouter une annonce </b>
+                    </a></li>
+                </ol>
+            </div>
+            <!-- <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex"></div>
+            </div> -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-xlg-12 col-md-12">
+                <div class="card">
+                    <div class="card-body" *ngFor="let a of annoce">
+                        <h4>{{a.description}}</h4>
+                        <h4>Type de déchet: {{a?.categorie?.type}}</h4>
+                        <h4>Date de publication : {{a?.date_publication | date: ('dd-MM-YYYY')}}</h4>
+                        <img src="{{photo}} + {{a.id_annonce}}">
+
+                        <!-- {{ a | json }} -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+    </div>
+
+</div>
