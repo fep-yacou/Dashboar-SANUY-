@@ -42,6 +42,12 @@ export class DetailDemandeComponent implements OnInit {
       data.etatAnnonce = "Valider";
       this.service.updateDemandeAnnonce(data.id, data).subscribe((da:any)=>{
         let url: string = "/detail-demande/" + data.id
+        console.log(data.utilisateur.email);
+        this.service.getMail(data.utilisateur.email, "Votre demande est validee", "Validation Demande").subscribe((d:any)=>{
+          console.log(d);
+          
+        })
+        
         window.location.reload();
         this.router.navigateByUrl(url, {skipLocationChange: true}).then(()=>
         this.router.navigate(['detail-demande', data.id]));

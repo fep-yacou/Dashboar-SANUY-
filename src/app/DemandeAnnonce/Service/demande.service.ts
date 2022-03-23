@@ -9,7 +9,10 @@ export class DemandeService {
   url = environment.URL;
   demande:any;
 
-  constructor(private http : HttpClient,) { }
+  constructor(
+    private http : HttpClient,
+    ) { }
+
   setDemande(data: any){this.demande = data}
   getDemande(){return this.demande}
   //Modifier DemandeDemandeAnnonce
@@ -25,5 +28,10 @@ export class DemandeService {
   //Details Annonce
   detailDemandeAnnonce(id:any){
     return this.http.get(this.url + `/getDemandeAnnonce/${id}`);
+  }
+
+  // Message
+  getMail(email, body, subject) {
+    return this.http.get(this.url+"/sendEmail/"+email+"/"+body+"/"+subject, {responseType:"text"});
   }
 }

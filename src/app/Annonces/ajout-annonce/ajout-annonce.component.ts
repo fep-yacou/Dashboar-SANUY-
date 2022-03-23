@@ -14,7 +14,7 @@ export class AjoutAnnonceComponent implements OnInit {
 
   listeCategorie: any;
   public imgfile: any = File;
-  submitted = false;
+  isSubmitted: boolean = false;
   formulaire: FormGroup;
   user: any;
 
@@ -27,6 +27,7 @@ export class AjoutAnnonceComponent implements OnInit {
   ngOnInit(): void {
     this.listerCategorie();
     this.formulaire = this.formBuilder.group({
+
       description: ['', Validators.required],
       categorie: ['', Validators.required]
       // geolocalisation: ['']
@@ -57,6 +58,9 @@ export class AjoutAnnonceComponent implements OnInit {
     let categorie = this.formulaire.value['categorie'];
     // let geolocalisation = this.formulaire.value['geolocalisation'];
 
+
+    this.isSubmitted = true;
+    if(this.formulaire.valid){
     this.service.ajoutAnnonce(file).subscribe((data) => {
         data.description = description,
         data.categorie = {
@@ -82,7 +86,7 @@ export class AjoutAnnonceComponent implements OnInit {
         this.router.navigate(['/liste-annonce'])
       })
     })
-
+  }
 
   }
 

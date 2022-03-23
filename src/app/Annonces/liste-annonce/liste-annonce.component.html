@@ -30,7 +30,7 @@
                         <h4>{{a.description}}</h4>
                         <h4>Type de déchet: {{a?.categorie?.type}}</h4>
                         <h4>Date de publication : {{a?.date_publication | date: ('dd-MM-YYYY')}}</h4>
-                        <img src="{{photo}} + {{a.id_annonce}}">
+                        <img class="annonce" src="{{photo}} + {{a.id_annonce}}">
 
                         <!-- {{ a | json }} -->
 
