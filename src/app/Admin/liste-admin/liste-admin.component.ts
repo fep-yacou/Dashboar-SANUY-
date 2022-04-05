@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AdminServiceService } from '../admin-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-liste-admin',
@@ -9,38 +10,51 @@ import { AdminServiceService } from '../admin-service.service';
 })
 export class ListeAdminComponent implements OnInit {
   listAdmin: any = [];
-  searchText= '';
+  searchText = '';
 
   constructor(
-    private service : AdminServiceService,
-    private router : Router,
+    private service: AdminServiceService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.listeAdm();
   }
 
-  listeAdm(){
-    return this.service.listeAdmin().subscribe((data: any)=>{
+  listeAdm() {
+    return this.service.listeAdmin().subscribe((data: any) => {
       let liste = data;
-      for(let i=0; i<liste.length; i++){
-        if(liste[i].etat == 'disponible')
-        this.listAdmin.push(liste[i]);
+      for (let i = 0; i < liste.length; i++) {
+        if (liste[i].etat == 'disponible')
+          this.listAdmin.push(liste[i]);
       }
     })
-}
-
-  deleteAdmin(data: any){
-  this.service.detailAdmin(data).subscribe((datas: any)=>{
-    datas.etat = "non_disponible";
-    let datasMod = datas;
-    console.log(datasMod);
-    this.service.updateAdmin(datasMod.id, datasMod).subscribe((mod: any)=>{
-      window.location.reload();
-    this.router.navigateByUrl('/liste-admin', {skipLocationChange: true}).then(()=>
-    this.router.navigate(['liste-admin'])); 
-    })
-  })
   }
 
+  deleteAdmin(id: any) {
+    this.service.deleteAdmin(id).subscribe();
+  }
+
+  alertDelete(id: any) {
+
+    Swal.fire({
+      title: 'Etes vous sûre de vouloir supprimer cet administrateur ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Supprimer'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteAdmin(id);
+        Swal.fire(
+          'Supprimé!',
+          'Administrateur Supprimé avec succès!',
+          'success'
+        )
+        window.location.reload();
+        this.router.navigate(['liste-admin']);
+      }
+    })
+  }
 }

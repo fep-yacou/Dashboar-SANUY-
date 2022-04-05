@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { UtilisateurServiceService } from '../utilisateur-service.service';
 
 @Component({
@@ -9,38 +10,52 @@ import { UtilisateurServiceService } from '../utilisateur-service.service';
 })
 export class ListeUtilisateurComponent implements OnInit {
   listUtilisateur: any = [];
-  searchText= '';
+  searchText = '';
 
   constructor(
-    private service : UtilisateurServiceService,
-    private router : Router,
+    private service: UtilisateurServiceService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.listeUtilisateur();
   }
 
-  listeUtilisateur(){
-    return this.service.listeUtilisateur().subscribe((data: any)=>{
+  listeUtilisateur() {
+    return this.service.listeUtilisateur().subscribe((data: any) => {
       let liste = data;
-      for(let i=0; i<liste.length; i++){
-        if(liste[i].etat == 'disponible')
-        this.listUtilisateur.push(liste[i]);
+      for (let i = 0; i < liste.length; i++) {
+        if (liste[i].etat == 'disponible')
+          this.listUtilisateur.push(liste[i]);
       }
     })
-}
+  }
 
-  deleteUtilisateur(data: any){
-  this.service.detailUtilisateur(data).subscribe((datas: any)=>{
-    datas.etat = "non_disponible";
-    let datasMod = datas;
-    console.log(datasMod);
-    this.service.updateUtilisateur(datasMod.id, datasMod).subscribe((mod: any)=>{
-      window.location.reload();
-    this.router.navigateByUrl('/liste-utilisateur', {skipLocationChange: true}).then(()=>
-    this.router.navigate(['liste-utilisateur'])); 
+  deleteUser(id: any) {
+    this.service.deleteUser(id).subscribe();
+  }
+
+  alertDelete(id: any) {
+
+    Swal.fire({
+      title: 'Etes vous sûre de vouloir supprimer cet utilisateur ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Supprimer'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteUser(id);
+        Swal.fire(
+          'Supprimé!',
+          'Utilisateur Supprimé avec succès!',
+          'success'
+        )
+        window.location.reload();
+        this.router.navigate(['liste-utilisateur']);
+      }
     })
-  })
   }
 
 }

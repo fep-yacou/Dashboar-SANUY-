@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { UtilisateurServiceService } from '../utilisateur-service.service';
 
 @Component({
@@ -52,6 +52,8 @@ export class AjoutUtilisateurComponent implements OnInit {
     let email = this.formulaire.value['email'];
     let login = this.formulaire.value['login'];
     let password = this.formulaire.value['password'];
+
+    // const navigationData: NavigationExtras = {queryParams: {"data": file}};
 
     this.service.ajoutUtilisateur(file).subscribe((data) => {
         data.nom = nom,

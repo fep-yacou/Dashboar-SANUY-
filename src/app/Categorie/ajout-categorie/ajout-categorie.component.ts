@@ -74,7 +74,7 @@ export class AjoutCategorieComponent implements OnInit {
         this.idcat = data.idcat;
       this.service.updateCategorie(this.idcat, data).subscribe((data) => {
         console.log("dataUpdate============", data);
-
+        this.router.navigate(['liste-categorie'])
       })
     })
 

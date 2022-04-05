@@ -9,8 +9,8 @@ import { LoginServiceService } from './login-service.service';
 })
 export class LoginComponent implements OnInit {
   login: any;
-  password:any;
-  private user:any;
+  password: any;
+  private user: any;
 
   constructor(
     private service: LoginServiceService,
@@ -20,13 +20,24 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-    onLogin(loginForm:any) {
+  onLogin(loginForm: any) {
     this.service.verifier(loginForm.login, loginForm.password)
       .subscribe(
-        (data:any)=> {
-          if (data!=null) {
-            localStorage.setItem('userData', JSON.stringify(data))
-           this.route.navigateByUrl('accueil');
+        (data: any) => {
+          this.user = data
+          if (data != null) {
+            if (this.user.etat === "non_disponible") {
+              console.log("Compte desactiver");
+              
+            } else {
+              localStorage.setItem('userData', JSON.stringify(data))
+              this.route.navigateByUrl('accueil');
+              console.log(this.user.nom);
+              
+            }
+          } else {
+            console.log("login ou mot de passe incorrect");
+            
           }
         }
       )

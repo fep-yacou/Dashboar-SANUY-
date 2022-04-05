@@ -13,7 +13,7 @@ export class DetailDemandeComponent implements OnInit {
   listCategorie : any;
   demande: any;
   id: any;
-  image = environment.URLPhoto
+  image = environment.URLPhotoAnnonce
   constructor(
     public categorieService : CategorieServiceService,
     public service: DemandeService, 
