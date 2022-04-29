@@ -8,7 +8,7 @@ import { AnnonceServiceService } from '../annonce-service.service';
   styleUrls: ['./liste-annonce.component.scss']
 })
 export class ListeAnnonceComponent implements OnInit {
-  photo = environment.URLPhoto;
+  photo = environment.URLPhotoAnnonce;
   annoce : any;
 
   constructor(private aService : AnnonceServiceService) { }

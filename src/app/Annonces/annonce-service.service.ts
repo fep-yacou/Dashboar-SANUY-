@@ -25,13 +25,13 @@ export class AnnonceServiceService {
         return this.http.put(this.url + '/modifierAnnonce/' + id, part, {responseType:"text"});
       }
       //Details Annonce
-      detailAnnonce(id_participant:any){
-        return this.http.get(this.url + '/participantById/${id_participant}');
+      detailAnnonce(id: any){
+        return this.http.get(this.url + '/find/' + id);
       }
   
       //Supprimer Annonce
       deleteAnnonce(id: any){
         console.log("delete service");
-        return this.http.delete(this.url + '/deleteParticipant/'+id)
+        return this.http.delete(this.url + '/delete/' + id)
       }
 }

@@ -31,6 +31,11 @@ import { DetailCategorieComponent } from './Categorie/detail-categorie/detail-ca
 import { ModifierCategorieComponent } from './Categorie/modifier-categorie/modifier-categorie.component';
 import { DemandeAttenteComponent } from './DemandeAnnonce/demande-attente/demande-attente.component';
 import { DetailDemandeComponent } from './DemandeAnnonce/detail-demande/detail-demande.component';
+import { MapComponent } from './map/map.component';
+import { CorbeilleComponent } from './corbeille/corbeille.component';
+import { CorbeilleUtilisateurComponent } from './corbeille/corbeille-utilisateur/corbeille-utilisateur.component';
+import { CorbeilleAnnonceComponent } from './corbeille/corbeille-annonce/corbeille-annonce.component';
+import { CorbeilleCategorieComponent } from './corbeille/corbeille-categorie/corbeille-categorie.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +63,11 @@ import { DetailDemandeComponent } from './DemandeAnnonce/detail-demande/detail-d
     ModifierCategorieComponent,
     DemandeAttenteComponent,
     DetailDemandeComponent,
+    MapComponent,
+    CorbeilleComponent,
+    CorbeilleUtilisateurComponent,
+    CorbeilleAnnonceComponent,
+    CorbeilleCategorieComponent,
 
   ],
 

@@ -75,7 +75,7 @@
                                         <label for="example-email" class="col-md-12 p-0">TELEPHONE</label>
                                         <div class="col-md-12 border-bottom p-0">
                                             <input type="text" placeholder=" 70 00 00 00"
-                                            class="form-control p-0 border-0" name="genre" required pattern="[0-9]{8}" [(ngModel)]="admin.telephone"  #telephone="ngModel">
+                                            class="form-control p-0 border-0" name="genre" required pattern="[0-9]{8}" [(ngModel)]="admin.tel"  #telephone="ngModel">
                                         </div>
                                         <p *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)" class="alert">
                                             <b *ngIf="telephone.errors?.['required']">

@@ -8,7 +8,7 @@ import { CategorieServiceService } from '../categorie-service.service';
   styleUrls: ['./list-categorie.component.scss']
 })
 export class ListCategorieComponent implements OnInit {
-  photo = environment.URLPhoto;
+  photo = environment.URLPhotoCat;
   listCategorie : any;
 
   constructor(

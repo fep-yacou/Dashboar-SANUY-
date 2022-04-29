@@ -28,8 +28,9 @@ export class AccueilComponent implements OnInit {
       console.log(data);
     })
   }
+
   nmbreAnnonce() {
-    return this.service.nmbreTotalUtilisateur().subscribe(datas =>{
+    return this.service.nmbreTotalAnnonce().subscribe(datas =>{
       this.nmbreA = datas;
     })
   }

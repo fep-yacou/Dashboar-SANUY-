@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   URL: 'http://localhost:8090/recyclage',
-  URLPhoto: 'http://localhost:8090/recyclage/photo/'
+  URLPhotoCat: 'http://localhost:8090/recyclage/photoCategorie/',
+  URLPhotoAnnonce: 'http://localhost:8090/recyclage/photo/'
 };
 
 /*

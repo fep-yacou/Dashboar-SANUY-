@@ -15,6 +15,10 @@ export class AdminServiceService {
     return this.http.get(this.url+'/listAdmin');
   }
 
+  listeAdminByEtat(){
+    return this.http.get(this.url+'/findAdminByEtat');
+  }
+
   ajoutAdmin(data: any){
     return this.http.post(this.url+'/ajoutAdmin', data);
   }
@@ -30,4 +34,9 @@ export class AdminServiceService {
   deleteAdmin(id: any){
     return this.http.delete(this.url+`/deleteAdmin/${id}`);
   }
+
+  restaurerAdmin(id: any){
+    return this.http.delete(this.url+`/restaurerAdmin/${id}`);
+  }
+
 }
