@@ -34,12 +34,17 @@ export class CategorieServiceService {
   }
 
   //Supprimer Categorie
-  deleteCategorie(id: any){
-    return this.http.delete(this.url+`/supprimercategorie/${id}`);
+  deleteCategorie(id: any) {
+    return this.http.delete(this.url+ `/supprimercategorie/` +id);
   }
 
   //Restaurer Categorie
   restaurerCategorie(id: any){
     return this.http.delete(this.url+`/restaurerCategorie/${id}`);
+  }
+
+  //Liste Categorie par Etat
+  listeCategorieByEtat(){
+    return this.http.get(this.url+'/findCategorieByEtat');
   }
 }

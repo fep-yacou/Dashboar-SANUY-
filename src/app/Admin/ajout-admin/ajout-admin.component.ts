@@ -50,9 +50,9 @@ export class AjoutAdminComponent implements OnInit {
     this.prenom = form.value['prenom'];
     this.telephone = form.value['telephone'];
     this.email = form.value['email'];
-    this.etat = "active";
+    this.etat = "disponible";
     this.login = form.value['login'];
-    this.password = "Orange"+ this.telephone.substr(0, 3);
+    this.password = form.value['password'];
 
     this.admin.nom= this.nom;
     this.admin.prenom= this.prenom;
